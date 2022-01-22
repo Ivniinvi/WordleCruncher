@@ -57,17 +57,17 @@ while True:
                     if letter not in confirmed_global:
                         confirmed_global.append(letter)
                     denied_inplace[int(i)-1].append(letter)
-            if nons != 0:
-                for i in str(nons):
-                    letter = lastguess[int(i)-1]
-                    if letter not in confirmed_global:
-                        denied_global.append(letter)
             for i in range(5):
                 if str(i+1) not in (str(places) + str(nons)):
                     letter = lastguess[i]
                     confirmed_inplace[i] = letter
                     if letter not in confirmed_global:
                         confirmed_global.append(letter)
+            if nons != 0:
+                for i in str(nons):
+                    letter = lastguess[int(i)-1]
+                    if letter not in confirmed_global:
+                        denied_global.append(letter)
             if places == 0 and nons == 0:
                 print('Congratulations!')
                 break
